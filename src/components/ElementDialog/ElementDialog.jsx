@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
-
+import { toast } from "react-toastify";
 const ElementDialog = ({ element, onCancel, onSave }) => {
   const getOptionsInput =
     (element.type === "radio" ||
@@ -57,7 +57,7 @@ const ElementDialog = ({ element, onCancel, onSave }) => {
 
   const handleSave = () => {
     if (!formState.name.trim()) {
-      alert("enter field name first!");
+      toast.error("Enter field name first!");
       return;
     }
     const updatedElement = { ...element, ...formState };
@@ -66,7 +66,7 @@ const ElementDialog = ({ element, onCancel, onSave }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 ">
-      <div className="bg-white p-6 rounded shadow-lg w-96">
+      <div className="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 p-6 rounded shadow-lg w-96">
         <h3 className="text-lg font-bold mb-4">
           Configure{" "}
           <span className="text-red-500 italic underline capitalize">
@@ -81,7 +81,8 @@ const ElementDialog = ({ element, onCancel, onSave }) => {
             ref={nameInputRef}
             value={formState.name}
             onChange={e => handleInputChange("name", e.target.value)}
-            className="w-full p-2 border rounded"
+            placeholder="Enter field name..."
+            className="w-full p-2 border border-gray-300 dark:border-gray-700 dark:text-gray-900 rounded"
           />
         </div>
         <div className="mb-4">
@@ -107,7 +108,7 @@ const ElementDialog = ({ element, onCancel, onSave }) => {
                     ref={el => (optionRefs.current[index] = el)}
                     value={option}
                     onChange={e => handleChangeOption(index, e.target.value)}
-                    className="flex-grow p-2 border rounded mr-2"
+                    className="flex-grow p-2 border rounded mr-2 dark:text-gray-800"
                   />
                   <button
                     type="button"
@@ -136,12 +137,15 @@ const ElementDialog = ({ element, onCancel, onSave }) => {
           </div>
         )}
         <div className="flex justify-end space-x-2">
-          <button onClick={onCancel} className="px-4 py-2 bg-gray-300 rounded">
+          <button
+            onClick={onCancel}
+            className="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded"
+          >
             Cancel
           </button>
           <button
             onClick={handleSave}
-            className="px-4 py-2 bg-green-500 text-white rounded"
+            className="px-4 py-2 bg-green-500 dark:bg-green-700 text-white rounded"
           >
             Save
           </button>

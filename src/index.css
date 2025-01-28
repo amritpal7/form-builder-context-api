@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Optional custom variables for dark and light mode */
+:root {
+  --primary-color: #1d4ed8;
+  --secondary-color: #64748b;
+}
+
+.dark {
+  --primary-color: #3b82f6;
+  --secondary-color: #94a3b8;
+}

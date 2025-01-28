@@ -9,7 +9,7 @@ const TextInputField = ({ name, required }) => {
       </label>
       <input
         type="text"
-        className="w-full border rounded p-2"
+        className="w-full border dark:text-gray-800 rounded p-2"
         required={required}
       />
     </div>
