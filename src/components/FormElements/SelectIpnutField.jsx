@@ -7,7 +7,10 @@ const SelectIpnutField = ({ name, required, options }) => {
         {name}
         {required && <span className="text-red-500">*</span>}
       </label>
-      <select className="w-full border rounded p-2" required={required}>
+      <select
+        className="w-full border rounded p-2 dark:text-gray-800"
+        required={required}
+      >
         <option value="">Select an option</option>
         {options.map((option, i) => (
           <option key={i} value={option}>

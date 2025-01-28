@@ -16,7 +16,7 @@ const PreviewSection = ({
 
   const handleElementClick = element => {
     setSelectedElement({ ...element });
-    onElementReconfigure(element);
+    // onElementReconfigure(element);
   };
   const handleDialogSave = updatedElement => {
     onElementSave(updatedElement);
@@ -36,36 +36,15 @@ const PreviewSection = ({
   return (
     <div
       ref={drop}
-      className="w-full bg-gray-100 h-[calc(100vh-4rem)] overflow-y-auto p-4 shadow-inner"
+      className="w-full bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 h-[calc(100vh-4rem)] overflow-y-auto p-4 shadow-inner"
     >
       {elements.length > 0 ? (
         <form className="space-y-4">
-          {/* {elements.map((element, index) => {
-            // Render the appropriate form element based on its type
-            return (
-              <div
-                key={element.id}
-                className="relative flex items-center justify-between p-4 border rounded bg-white shadow hover:shadow-md"
-              >
-                <div>
-                  <FormElement key={index} {...element} />
-                </div>
-
-                <button
-                  onClick={() => handleElementClick(element)}
-                  className="absolute top-1/2 right-4 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                >
-                  <FaEdit className="text-blue-500 text-lg" />
-                </button>
-              </div>
-            );
-          })} */}
-
           {elements.map((element, index) => {
             return (
               <div
                 key={element.id}
-                className="relative group flex items-center justify-between p-4 border rounded bg-white shadow hover:shadow-md"
+                className="relative group flex items-center justify-between p-4 border rounded bg-gray-200 dark:bg-gray-800 shadow hover:shadow-md"
               >
                 {/* Form element content */}
                 <div>
